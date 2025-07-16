@@ -1,0 +1,89 @@
+.dashboard-container {
+  padding: 2rem;
+  background: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #333;
+}
+
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #343a40;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.card strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card.orders { border-top: 4px solid #007bff; }
+.card.income { border-top: 4px solid #28a745; }
+.card.outcome { border-top: 4px solid #dc3545; }
+.card.balance { border-top: 4px solid #17a2b8; }
+
+.charts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.chart-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.users-table-wrapper {
+  margin-top: 2rem;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.users-table th,
+.users-table td {
+  border: 1px solid #e9ecef;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.users-table th {
+  background: #343a40;
+  color: #fff;
+}

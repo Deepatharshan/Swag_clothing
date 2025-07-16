@@ -1,0 +1,179 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&family=Josefin+Slab&display=swap');
+
+.desktop {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 5%;
+  overflow: hidden;
+}
+
+.overlap-group-wrapper {
+  width: 1372.5px;
+  height: 500px;
+}
+
+.overlap-group {
+  position: relative;
+  width: 1153px;
+  height: 579px;
+  top: -79px;
+  left: 219px;
+}
+
+.rectangle {
+  position: absolute;
+  width: 686px;
+  height: 500px;
+  top: 79px;
+  left: 467px;
+  background-color: #71a9be;
+  border-radius: 10px;
+  animation: floatBox 4s ease-in-out infinite;
+}
+
+.SWAG {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Joti One', cursive;
+  font-size: 350px;
+  color: transparent;
+  line-height: normal;
+  margin: 0;
+}
+
+.text-wrapper {
+  color: #71a9be;
+}
+
+.span {
+  color: white;
+}
+
+.swag-clothing-store {
+  position: absolute;
+  width: 332px;
+  top: 400px;
+  left: 41px;
+  font-family: 'Josefin Slab', serif;
+  font-size: 18px;
+  color: black;
+  line-height: 1.5;
+  animation: fadeInSlideUp 1.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-delay: 0.6s;
+}
+
+.dua-lipa {
+  position: absolute;
+  width: 482px;
+  height: 458px;
+  top: 150px;
+  left: 226px;
+  object-fit:contain;
+  border-radius: 10px;
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatImage {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.01) translateY(-5px);
+  }
+}
+
+@keyframes floatBox {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .overlap-group {
+    left: 50px;
+    transform: scale(0.9);
+  }
+
+  .SWAG {
+    font-size: 220px;
+  }
+
+  .dua-lipa {
+    width: 380px;
+    height: auto;
+  }
+
+  .rectangle {
+    left: 380px;
+    width: 550px;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop {
+    padding: 1rem;
+  }
+
+  .overlap-group-wrapper {
+    width: 100%;
+    height: auto;
+  }
+
+  .overlap-group {
+    position: relative;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    transform: none;
+  }
+
+  .SWAG {
+    font-size: 120px;
+  }
+
+  .rectangle {
+    width: 100%;
+    height: 300px;
+    top: 0;
+    left: 0;
+  }
+
+  .dua-lipa {
+    position:absolute;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+  }
+
+  .swag-clothing-store {
+    position: static;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+  }
+}
