@@ -1,124 +1,380 @@
+/* Fade in whole page on first load */
+.home-page {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Default hidden state for scroll-triggered elements */
+.fade-up, .slide-in-left, .slide-in-right {
+  opacity: 0;
+}
+
+/* Fade up elements start slightly below */
+.fade-up {
+  transform: translateY(20px);
+}
+
+/* Slide from left/right initial states */
+.slide-in-left {
+  transform: translateX(-50px);
+}
+.slide-in-right {
+  transform: translateX(50px);
+}
+
+/* When in view, trigger animations */
+.fade-up.in-view {
+  animation: fadeUp 0.8s forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-left.in-view {
+  animation: slideInLeft 0.8s forwards;
+}
+@keyframes slideInLeft {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.slide-in-right.in-view {
+  animation: slideInRight 0.8s forwards;
+}
+@keyframes slideInRight {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Keep your existing styles below --- */
+
+/* Welcome section */
 .home-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 250px;
+  min-height: 200px;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
 }
-
 .home-content h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #222;
 }
-
 .home-content p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #555;
 }
 
-/* Branding Box */
-.brand-box {
-  background-color: #f2f2f2;
-  padding: 2rem 0;
+/* Stats cards */
+#sec {
+  font-family: 'Raleway', sans-serif;
+  padding: 50px 0;
+  background: #fff;
   text-align: center;
-  border-radius: 12px;
-  margin: 2rem 0;
-  overflow: hidden;
-  width: 100%;
 }
-
-.brand-box h3 {
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
-  color: #222;
+#sec h2 {
+  font-weight: 200;
+  font-size: 30px;
+  color: #63B7E6;
+  margin-bottom: 2rem;
 }
-
-/* Marquee Track for Seamless Scroll */
-.brand-marquee {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.brand-track {
+#sec ul {
   display: flex;
-  width: calc(200%); /* Double for seamless loop */
-  animation: brandScroll 30s linear infinite;
-}
-
-.brand-track img {
-  height: 60px;
-  width: auto;
-  margin: 0 2rem;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-  filter: grayscale(0.4);
-}
-
-.brand-track img:hover {
-  transform: scale(1.1);
-  filter: grayscale(0);
-}
-
-@keyframes brandScroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Accessories Section */
-.accessory-section {
-  padding: 2rem;
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.accessory-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: #222;
-}
-
-.accessory-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
-  padding: 0 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-.accessory-card {
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+#sec ul li {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 30px 20px;
+  width: 250px;
+  transition: box-shadow .3s, transform .3s;
 }
-
-.accessory-card:hover {
+#sec ul li:hover {
+  box-shadow: 0 12px 15px rgba(0,0,0,0.2);
   transform: translateY(-5px);
 }
+#sec ul li span {
+  font-size: 2.6em;
+  display: block;
+  color: #A2A2A2;
+  transition: color .3s;
+}
+#sec ul li:hover span { color: #63B7E6; }
+#sec ul li h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #808080;
+  margin: 10px 0;
+  transition: color .3s;
+}
+#sec ul li h3:after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #808080;
+  margin: 8px auto 0;
+  transition: width .3s, background .3s;
+}
+#sec ul li:hover h3 { color: #63B7E6; }
+#sec ul li:hover h3:after { width: 25px; background: #63B7E6; }
+#sec ul li:hover p { color: #555; }
+#sec ul li p {
+  color: #A2A2A2;
+  font-size: 16px;
+  margin-top: 8px;
+  transition: color .3s;
+}
 
-.accessory-card img {
+/* New Blog Cards section */
+.blog-section { text-align: center; margin: 3rem 0; }
+.blog-section h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #333; }
+.blog-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* From Uiverse.io by Smit-Prajapati */
+.parent {
+  width: 300px;
+  padding: 20px;
+  perspective: 1000px;
+}
+
+.card {
+  padding-top: 50px;
+  border: 3px solid rgb(255, 255, 255);
+  transform-style: preserve-3d;
+  background: linear-gradient(135deg,#0000 18.75%,#f3f3f3 0 31.25%,#0000 0),
+              repeating-linear-gradient(45deg,#f3f3f3 -6.25% 6.25%,#ffffff 0 18.75%);
+  background-size: 60px 60px;
+  background-color: #f0f0f0;
   width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+  transition: all 0.5s ease-in-out;
 }
 
-.accessory-card h4 {
+.card:hover {
+  background-position: -100px 100px, -100px 100px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.content-box {
+  background: #72AABE;
+  padding: 60px 25px 25px 25px;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-in-out;
+}
+
+.content-box .card-title {
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  transform: translate3d(0px, 0px, 50px);
+  transition: all 0.5s ease-in-out;
+}
+
+.content-box .card-title:hover { transform: translate3d(0px, 0px, 60px); }
+
+.content-box .card-content {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f2f2f2;
+  transform: translate3d(0px, 0px, 30px);
+  transition: all 0.5s ease-in-out;
+}
+
+.content-box .card-content:hover { transform: translate3d(0px, 0px, 60px); }
+
+.content-box .see-more {
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: rgb(7, 185, 255);
+  background: white;
+  padding: 0.5rem 0.7rem;
+  transform: translate3d(0px, 0px, 20px);
+  transition: all 0.5s ease-in-out;
+}
+
+.content-box .see-more:hover { transform: translate3d(0px, 0px, 60px); }
+
+.date-box {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 60px;
+  width: 60px;
+  background: white;
+  border: 1px solid rgb(7, 185, 255);
+  padding: 10px;
+  transform: translate3d(0px, 0px, 80px);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 17px 10px -10px;
+}
+
+.date-box span {
+  display: block;
+  text-align: center;
+}
+
+.date-box .month {
+  color: rgb(4, 193, 250);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.date-box .date {
+  font-size: 20px;
+  font-weight: 900;
+  color: rgb(4, 193, 250);
+}
+
+
+
+
+
+/* New hero section about the store */
+.store-hero {
+  background: url('C:\Users\Deepatharshan\Desktop\Swag_clothing\client\public\offers\store-bg.webp') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 6rem 1rem;
+  margin: 3rem auto;
+  border-radius: 0px;
+  position: relative;
+}
+.store-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  border-radius: 0px;
+}
+.store-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.store-hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.store-hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.about-btn {
+  background-color: #63B7E6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
   font-size: 1rem;
-  color: #333;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.about-btn:hover { background-color: #428ec9; }
+
+
+/* Hero offers section */
+.hero-offers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+.offer-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  flex: 1 1 300px;
+  max-width: 500px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.offer-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+.offer-label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #e63946;
+  color: white;
+  padding: 8px 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.accessory-card p {
-  color: #666;
-  font-size: 0.9rem;
+/* New styles for description and button */
+.offer-desc {
+  padding: 1rem 1.5rem 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.offer-desc p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.get-collections-btn {
+  background-color: #63B7E6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(99,183,230,0.4);
+}
+
+.get-collections-btn:hover {
+  background-color: #428ec9;
+}
+
+/* Animate the description and button with fade-up on scroll */
+.offer-desc.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.offer-desc.fade-up.in-view {
+  animation: fadeUp 0.8s forwards;
+  animation-delay: 0.3s;
+}
+.get-collections-btn.fade-up.in-view {
+  animation: fadeUp 0.8s forwards;
+  animation-delay: 0.5s;
 }
